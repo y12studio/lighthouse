@@ -42,8 +42,8 @@ ENV PATH $PATH:$JAVA_HOME/bin:$M2
 
 # install bitcoinj/updatefx/lighthouse
 
-RUN cd /opt && git clone https://github.com/bitcoinj/bitcoinj && cd bitcoinj && mvn install -DskipTests
-RUN cd /opt && git clone https://github.com/vinumeris/updatefx && cd updatefx && mvn install -DskipTests
-RUN cd /opt && git clone https://github.com/vinumeris/lighthouse && cd lighthouse && mvn package -DskipTests
+RUN cd /opt && git clone --depth 1 https://github.com/bitcoinj/bitcoinj && cd bitcoinj && mvn install -DskipTests
+RUN cd /opt && git clone --depth 1 https://github.com/vinumeris/updatefx && cd updatefx && mvn install -DskipTests
+RUN cd /opt && git clone --depth 1 https://github.com/vinumeris/lighthouse && cd lighthouse && mvn package -DskipTests
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
